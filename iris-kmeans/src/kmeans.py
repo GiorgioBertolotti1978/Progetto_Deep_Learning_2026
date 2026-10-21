@@ -59,7 +59,7 @@ class KMeansFromScratch:
         """ Scelta degl indici per individuare i centroidi"""
         rng = np.random.default_rng(self.random_state) # Generatore a partire dal seed
         indices = rng.choice(len(X), size=self.n_clusters, replace=False) # scelta dei k indici
-
+        centers = X[indices].copy() # coordinate dei campioni scelti come centroidi iniziali
 
         """ Calcolo matrice delle distanze quadratiche e restituzione di una matrice con N righe e K colonne """
         distances = self._squared_distances(X, centers)
